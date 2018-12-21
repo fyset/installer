@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby -w
+
+require 'uri'
+require 'fileutils'
+
+commands = {'new' => 'with optional {directory_name} parameter: Crew a new copy of fyset', '--help' => 'Display a list of all commands'}
+repo_url = "https://github.com/sggomon/yask.git"
+
+if ARGV[0].nil?
+  raise 'Please, enter a commnad'
+end
+
+if  ARGV[1].nil?
+  directory_name = 'fyset'
+else
+  directory_name = ARGV[1]
+end
+
+case ARGV[0]
+    when 'new'  
+        system("git clone #{repo_url} #{directory_name}")
+    when '--help'
+        commands.each do |command, description|
+            puts "#{command}:#{description}"
+        end
+    else 
+        raise 'Command not found. You can enter "fyset --help" for a list of all possible commands'
+end
