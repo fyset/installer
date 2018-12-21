@@ -4,7 +4,7 @@ require 'uri'
 require 'fileutils'
 
 commands = {'new' => 'with optional {directory_name} parameter: Crew a new copy of fyset', '--help' => 'Display a list of all commands'}
-repo_url = "https://github.com/sggomon/yask.git"
+repo_url = "https://github.com/fyset/fyset.git"
 
 if ARGV[0].nil?
   raise 'Please, enter a commnad'
